@@ -10,17 +10,17 @@ namespace Catalog.API.Data
         //private readonly IConfiguration configuration;
         public IMongoCollection<Product> Products { get; }
 
-        //public CatalogContext(IConfiguration configuration)
-        //{
-        //    this.configuration = configuration;
-        //    // var client = new MongoClient(configuration.GetValue<string>("DatabaseSettings:ConnectionString"));
-        //    // var database = client.GetDatabase(configuration.GetValue<string>("DatabaseSettings:DatabaseName"));
-        //    //var Products = database.GetCollection<Product>(configuration.GetValue<string>("DatabaseSettings:CollectionName"));
-        //    var client = new MongoClient("mongodb://localhost:27017");
-        //    var database = client.GetDatabase("CatalogDb");
-        //    var Products = database.GetCollection<Product>("Products");
-        //    CatalogcontextSeed.SeedData(Products);
-        //}
+        // public CatalogContext(IConfiguration configuration)
+        // {
+        // this.configuration = configuration;
+        //  var client = new MongoClient(configuration.GetValue<string>("DatabaseSettings:ConnectionString"));
+        //  var database = client.GetDatabase(configuration.GetValue<string>("DatabaseSettings:DatabaseName"));
+        //  Products = database.GetCollection<Product>(configuration.GetValue<string>("DatabaseSettings:CollectionName"));
+        //var client = new MongoClient("mongodb://localhost:27017");
+        //var database = client.GetDatabase("CatalogDb");
+        //var Products = database.GetCollection<Product>("Products");
+        //CatalogcontextSeed.SeedData(Products);
+        //   }
 
         public CatalogContext(IOptions<DatabaseProperties> config)
         {
