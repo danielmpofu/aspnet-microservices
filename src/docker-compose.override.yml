@@ -19,3 +19,23 @@ services:
       - catalogdb
     ports:
       - "8000:80"
+
+  basket.api:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - "CacheSettings:ConnectionString=local-redis:6379"
+    depends_on:
+      - local-redis
+    ports:
+      - "8001:80"
+
+  portainer:
+    container_name: portainer
+    restart: always
+    ports:
+       - "8090:8090"
+       - "9000:9000"
+    volumes:
+       - /var/run/docker.sock:/var/run/docker.sock
+       - "portainer_data:/data"
+

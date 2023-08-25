@@ -11,10 +11,11 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddStackExchangeRedisCache(
     options =>
     {
-        var settings = builder.Configuration.GetValue<CacheSettings>("CacheSettings");
-        options.Configuration = settings.ConnectionString;
+        options.Configuration = "127.0.0.1:6379";
+        //var settings = builder.Configuration.GetValue<CacheSettings>("CacheSettings") ?? new CacheSettings() { ConnectionString = "localhost:6379" };
+        //options.Configuration = settings.ConnectionString;
     });
-builder.Services.AddScoped<IBasketRepository,BasketRepository>();
+builder.Services.AddScoped<IBasketRepository, BasketRepository>();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
