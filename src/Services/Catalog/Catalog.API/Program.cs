@@ -7,6 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.Configure<DatabaseProperties>(
     builder.Configuration.GetSection("DatabaseSettings"));
 
+
 // Add services to the container.
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddSingleton<ICatalogContext, CatalogContext>();
