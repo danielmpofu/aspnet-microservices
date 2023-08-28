@@ -9,6 +9,28 @@ services:
     volumes:
       - mongo_data:/data/db
 
+  discountdb:
+    container_name: discountdb
+    environment:
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=admin1234
+      - POSTGRES_DB=Discountdb
+    restart: always
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgres/data/
+
+  pgadmin:
+    container_name: pgadmin
+    restart: always
+    ports:
+     - "5050:80"
+    volumes:
+     - pgadmin_data:/root/.pgadmin
+    environment:
+     - PGADMIN_DEFAULT_EMAIL=danielmpofu123@gmail.com
+     - PGADMIN_DEFAULT_PASSWORD=Password@1
 
   catalog.api:
     container_name: catalog.api
@@ -39,3 +61,17 @@ services:
        - /var/run/docker.sock:/var/run/docker.sock
        - "portainer_data:/data"
 
+
+  discountapi:
+    container_name: discountapi
+    depends_on: 
+        - discountdb
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=https://+:443;http://+:80
+      - "Server=localhost; port=5432; Database=Discountdb; User Id=admin; Password=admin1234"
+    ports:
+      - "8002:80"
+    volumes:
+      - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
+      - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
