@@ -23,8 +23,8 @@ namespace Discount.GRPC
             return Ok(coupon);
         }
 
-        [HttpPut("{id}")]
-        public async Task<ActionResult<bool>> UpdateDiscount(string couponId, [FromBody] Coupon coupon)
+        [HttpPut("{couponId}")]
+        public async Task<ActionResult<bool>> UpdateDiscount(int couponId, [FromBody] Coupon coupon)
         {
             var updated = await couponRepository.UpdateDiscount(couponId: couponId, coupon: coupon);
             return Ok(updated);

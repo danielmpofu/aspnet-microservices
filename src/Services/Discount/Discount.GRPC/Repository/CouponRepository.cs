@@ -44,7 +44,7 @@ namespace Discount.GRPC.Repository
             return coupon;
         }
 
-        public async Task<bool> UpdateDiscount(string couponId, Coupon coupon)
+        public async Task<bool> UpdateDiscount(int couponId, Coupon coupon)
         {
             var affected = await connection.ExecuteAsync("update Coupon SET ProductName = @ProductName , Description = @Description , Amount = @Amount wher Id=@Id",
                 new { ProductName = coupon.ProductName, Description = coupon.Description, Amount = coupon.Amount, Id =  couponId });

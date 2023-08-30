@@ -6,7 +6,7 @@ namespace Discount.GRPC.Repository
     {
         Task<Coupon> GetDiscount(string productName);
         Task<bool> CreateDiscount(Coupon coupon);
-        Task<bool> UpdateDiscount(string couponId ,Coupon coupon);
+        Task<bool> UpdateDiscount(int couponId ,Coupon coupon);
         Task<bool> DeleteDiscount(string productName);
     }
 }
