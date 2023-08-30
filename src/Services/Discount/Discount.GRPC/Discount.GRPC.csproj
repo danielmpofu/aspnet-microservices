@@ -5,9 +5,10 @@
 		<Nullable>enable</Nullable>
 		<ImplicitUsings>enable</ImplicitUsings>
 	</PropertyGroup>
-
+	<!--		<Protobuf Include="Protos\greet.proto" />-->
 	<ItemGroup>
-		<Protobuf Include="Protos\greet.proto" GrpcServices="Server" />
+
+		<Protobuf Include="Protos\discount.proto" GrpcServices="Server" />
 	</ItemGroup>
 
 	<ItemGroup>
