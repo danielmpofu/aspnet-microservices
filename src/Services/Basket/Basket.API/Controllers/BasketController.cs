@@ -25,6 +25,8 @@ public class BasketController : Controller
     [HttpPut]
     public async Task<ActionResult<ShoppingCart>> UpdateBasket([FromBody] ShoppingCart shoppingCart)
     {
+        //TODO: Communicate with discount.grpc and get the lattest prices of the products the after that caulculate the total price of the shopping cart.
+
         var updatedCart = await basketRepository.UpdateCart(shoppingCart);
         return Ok(updatedCart);
     }
