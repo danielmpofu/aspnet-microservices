@@ -1,3 +1,4 @@
+using Basket.API.GRPCServices;
 using Basket.API.Repository;
 using Basket.API.SettingsConfiguration;
 
@@ -16,6 +17,7 @@ builder.Services.AddStackExchangeRedisCache(
         //options.Configuration = settings.ConnectionString;
     });
 builder.Services.AddScoped<IBasketRepository, BasketRepository>();
+builder.Services.AddScoped<GRPCServicesClient>();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
