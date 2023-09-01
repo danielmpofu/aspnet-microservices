@@ -46,6 +46,7 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - "CacheSettings:ConnectionString=local-redis:6379"
+      - "GrpcSettings:Url=http://discount.grpc"
     depends_on:
       - local-redis
     ports:
